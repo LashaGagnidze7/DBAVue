@@ -1,6 +1,7 @@
 import {createApp} from 'vue'
 // import the root component App from a single-file component.
-import AppTemp from './components/AppTemp.vue'
+import App from './components/ReactivityFundamentals.vue'
 
-const app = createApp(AppTemp)
+const app = createApp(App)
 app.mount('#app')
+

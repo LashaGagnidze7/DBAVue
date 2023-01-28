@@ -1,4 +1,6 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import {createApp} from 'vue'
+// import the root component App from a single-file component.
+import AppTemp from './components/AppTemp.vue'
 
-createApp(App).mount('#app')
+const app = createApp(AppTemp)
+app.mount('#app')

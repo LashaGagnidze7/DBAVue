@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import { nextTick } from "vue"
-import { debounce } from "lodash-es"
-const _ = require('lodash');
+import { nextTick } from "vue";
+import { debounce } from "lodash-es";
+const _ = require("lodash");
 
 export default {
   data() {

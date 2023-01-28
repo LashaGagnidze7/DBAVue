@@ -1,7 +1,6 @@
-import {createApp} from 'vue'
+import { createApp } from "vue";
 // import the root component App from a single-file component.
-import App from './components/ReactivityFundamentals.vue'
+import App from "./components/ComputedProperties.vue";
 
-const app = createApp(App)
-app.mount('#app')
-
+const app = createApp(App);
+app.mount("#app");

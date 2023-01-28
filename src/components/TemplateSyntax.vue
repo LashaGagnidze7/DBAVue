@@ -31,7 +31,8 @@
   <a v-on:[eventName]="doSomething"> ... </a>
   <a @[eventName]="doSomething"> ... </a>
 
-  <form @submit.prevent="onSubmit"> ... </form> <!-- Modifiers -->
+  <form @submit.prevent="onSubmit">...</form>
+  <!-- Modifiers -->
 </template>
 
 <script>
@@ -62,8 +63,6 @@ export default {
 
       attributeName: "href", // Dynamic Arguments. null can be used to remove binding
       eventName: "click",
-
-
     };
   },
   methods: {

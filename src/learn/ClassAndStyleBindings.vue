@@ -47,3 +47,5 @@ export default {
 </script>
 
 <style></style>
+
+git add . && git commit -m "Class and Style Bindings" && git push -u origin master

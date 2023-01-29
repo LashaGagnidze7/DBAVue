@@ -1,67 +1,30 @@
 <template>
-  <p>
-    Ask a yes/no question:
-    <input v-model="question" />
-  </p>
-  <p>{{ answer }}</p>
+  <ul>
+    <li v-for="item in list" ref="items" :key="item">
+      {{ item }}
+    </li>
+  </ul>
+  <ChildComponent ref="child" />
+  <input :ref="(el) => { /* assign el to a property or ref */ }">
 </template>  
 
 <script>
-/*const unwatch = this.$watch('foo', callback)
+import ChildComponent from './components/ChildComponent.vue'
 
-// ...when the watcher is no longer needed:
-unwatch()*/
 export default {
   data() {
     return {
-      key: '',
-      question: '',
-      question1: '',
-      answer: 'Questions usually contain a question mark. ;-)'
+      list: [
+        1, 2, 3, 4, 5, 6, 7
+      ],
     };
   },
-  created() {
-    this.$watch('question', (/*newQuestion*/) => {
-      //..
-    })
+  mounted() {
+    console.log(this.$refs.items);
+    // this.$refs.child will hold an instance of <Child />
   },
-  watch: {
-    // whenever question changes, this function will run
-    question(newQuestion, /*oldQuestion*/) {
-      if (newQuestion.includes('?')) {
-        this.getAnswer();
-      }
-    },
-    someObject: {
-      handler(/*newValue, oldValue*/) {
-        // Note: `newValue` will be equal to `oldValue` here
-        // on nested mutations as long as the object itself
-        // hasn't been replaced.
-      },
-      deep: true,
-    },
-    question1: {
-      handler(/*newQuestion*/) {
-        // this will be run immediately on component creation
-      },
-      // force eager callback execution
-      immediate: true,
-    },
-    key: {
-      handler() { },
-      flush: 'post',
-    }
-  },
-  methods: {
-    async getAnswer() {
-      this.answer = 'Thinking...'
-      try {
-        const res = await fetch('https://yesno.wtf/api')
-        this.answer = (await res.json()).answer
-      } catch (error) {
-        this.answer = 'Error! Could not reach teh API. ' + error
-      }
-    }
+  components: {
+    ChildComponent
   }
 };
 </script>

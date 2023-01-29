@@ -1,37 +1,67 @@
 <template>
-
+  <p>
+    Ask a yes/no question:
+    <input v-model="question" />
+  </p>
+  <p>{{ answer }}</p>
 </template>  
 
 <script>
+/*const unwatch = this.$watch('foo', callback)
+
+// ...when the watcher is no longer needed:
+unwatch()*/
 export default {
   data() {
     return {
-
+      key: '',
+      question: '',
+      question1: '',
+      answer: 'Questions usually contain a question mark. ;-)'
     };
   },
-  beforeCreate() {
-    console.log(`component is not created yet`);
-  },
   created() {
-    console.log(`component created`);
+    this.$watch('question', (/*newQuestion*/) => {
+      //..
+    })
   },
-  beforeMount() {
-    console.log(`component is not mounted yet`);
+  watch: {
+    // whenever question changes, this function will run
+    question(newQuestion, /*oldQuestion*/) {
+      if (newQuestion.includes('?')) {
+        this.getAnswer();
+      }
+    },
+    someObject: {
+      handler(/*newValue, oldValue*/) {
+        // Note: `newValue` will be equal to `oldValue` here
+        // on nested mutations as long as the object itself
+        // hasn't been replaced.
+      },
+      deep: true,
+    },
+    question1: {
+      handler(/*newQuestion*/) {
+        // this will be run immediately on component creation
+      },
+      // force eager callback execution
+      immediate: true,
+    },
+    key: {
+      handler() { },
+      flush: 'post',
+    }
   },
-  mounted() {
-    console.log(`componet mounted`)
-  },
-  beforeUpdate() {
-    console.log(`component is not updated yet`)
-  },
-  updated() {
-    console.log(`component updated`);
-  },
-  beforeUnmount() {
-    console.log(`component is not mounted yet`);
-  },
-  mounted() {
-    console.log(`component mounted`);
+  methods: {
+    async getAnswer() {
+      this.answer = 'Thinking...'
+      try {
+        const res = await fetch('https://yesno.wtf/api')
+        this.answer = (await res.json()).answer
+      } catch (error) {
+        this.answer = 'Error! Could not reach teh API. ' + error
+      }
+    }
   }
 };
 </script>

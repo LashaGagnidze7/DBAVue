@@ -33,3 +33,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+input {
+  display: block;
+  margin: 10px;
+  font-size: x-large;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+</style>

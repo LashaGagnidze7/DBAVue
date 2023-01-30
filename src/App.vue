@@ -59,4 +59,18 @@ export default {
 </script>
 
 <style>
+#app {
+  margin: auto;
+  width: 25%;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: x-large;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  display: block;
+}
 </style>

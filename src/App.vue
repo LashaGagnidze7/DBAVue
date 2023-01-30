@@ -28,7 +28,6 @@
     <a :disabled="!result?.last_page_url" @click.prevent="getData(result.last_page_url)">Last Page</a>
   </div>
 </template>
-
 <script>
 import axios from 'axios'
 
@@ -62,7 +61,6 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 * {
   margin: 3px;

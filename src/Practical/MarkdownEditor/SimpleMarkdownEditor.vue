@@ -3,10 +3,11 @@ A simple markdown editor.
 -->
 
 <script>
-import { marked } from 'marked'
-import { debounce } from 'lodash-es'
+import {marked} from 'marked'
+import {debounce} from 'lodash-es'
 
 export default {
+  name: "SimpleMarkdownEditor",
   data: () => ({
     input: '# hello'
   }),

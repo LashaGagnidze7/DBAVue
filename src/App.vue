@@ -32,6 +32,7 @@
 import axios from 'axios'
 
 export default {
+  name: "App",
   data() {
     return {
       limits: [5, 10, 15, 20],

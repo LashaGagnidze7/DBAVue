@@ -58,7 +58,7 @@ function addProduct() {
     name: name.value,
     price: price.value,
     img: {
-      cover: require('./components/no-product-image.png')
+      cover: require('./assets/no-product-image.png')
     }
   })
   toggleRender()

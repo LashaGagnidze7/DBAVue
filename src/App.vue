@@ -3,12 +3,17 @@ import axios from "axios";
 import { ref, onMounted } from 'vue'
 
 const apiUrl = 'http://items.magischer.de/api/products'
-const limit = 5
-const lang = 'en'
+let limit = 5
+const limits = [5, 10, 15, 20]
+let lang = 'en'
+const langs = ['en', 'ru', 'ka']
 const products = ref([])
 const meta = ref(null)
 const product = ref(null)
 const checkedIds = ref([])
+const listRender = ref(true)
+const name = ref(null)
+const price = ref(null)
 
 function getProducts(url = apiUrl) {
   axios.get(url, {
@@ -23,17 +28,40 @@ function getProducts(url = apiUrl) {
 }
 
 function handleMassDelete() {
-  products.value = products.value.filter((p) => !checkedIds.value.includes(String(p.id)))
+  products.value.forEach((value, index, array) => {
+    const i = checkedIds.value.indexOf(value.id)
+    if (i !== -1) {
+      checkedIds.value.splice(i, 1)
+      array.splice(index, 1)
+    }
+  })
 }
+
 
 function handleCheck(e) {
   const id = e.target.id
   const index = checkedIds.value.indexOf(id)
-  if (index != -1) {
+  if (index !== -1) {
     checkedIds.value.splice(index, 1)
   } else {
-    checkedIds.value.push(id)
+    checkedIds.value.push(parseInt(id))
   }
+}
+
+function toggleRender() {
+  listRender.value = !listRender.value
+}
+
+function addProduct() {
+  products.value.push({
+    id: products.value.length + 1,
+    name: name.value,
+    price: price.value,
+    img: {
+      cover: require('./components/no-product-image.png')
+    }
+  })
+  toggleRender()
 }
 
 onMounted(function () {
@@ -44,29 +72,49 @@ onMounted(function () {
 <template>
   <header>
     <h1>Product List</h1>
-    <div>
-      <a>ADD</a>
+    <div v-if="listRender">
+      <select v-model="limit" @change="getProducts()">
+        <option v-for="item in limits" :value="item" :key="item">{{ item }}</option>
+      </select>
+      <select v-model="lang" @change="getProducts()">
+        <option v-for="item in langs" :value="item" :key="item">{{ item }}</option>
+      </select>
+      <a @click="toggleRender">ADD</a>
       <button type="button" id="delete-product-btn" @click="handleMassDelete">MASS DELETE</button>
     </div>
   </header>
   <hr />
-  <main>
-    <div v-for="item in products" :key="item.id" :class="{ 'checked': checkedIds.includes(String(item.id)) }">
+  <main v-if="listRender">
+    <div v-for="item in products" :key="item.id" :class="{ 'checked': checkedIds.includes(item.id) }">
       <div>
         <input type="checkbox" class="delete-checkbox" :id="item.id" @click="handleCheck" />
       </div>
       <div>
+        <img :src="item.img.cover">
         <p>{{ item.id }}</p>
         <p>{{ item.name }}</p>
-        <p>{{ item.details }}</p>
+        <p>{{ item.price + " ლარი" }}</p>
       </div>
     </div>
+  </main>
+  <main v-else>
+    <form @submit.prevent="addProduct">
+      <div>
+        <label>Name</label>
+        <input type="text" v-model="name" />
+      </div>
+      <div>
+        <label>Price ($)</label>
+        <input type="text" v-model="price"/>
+      </div>
+      <button type="submit">Add Product</button>
+    </form>
   </main>
   <hr />
   <footer>
     <h4>DBA Project Assignment</h4>
   </footer>
-  <div>
+  <div v-if="listRender">
     <button @click.prevent="getProducts(meta.first_page_url)" :disabled="!meta?.first_page_url">first</button>
     <button @click.prevent="getProducts(meta?.prev_page_url)" :disabled="!meta?.prev_page_url">prev</button>
     <button @click.prevent="getProducts(meta?.next_page_url)" :disabled="!meta?.next_page_url">next</button>
@@ -235,6 +283,12 @@ main form div select {
 
 .checked {
   background-color: indianred;
+}
+
+main img {
+  width: 25%;
+  height: 25%;
+  border-radius: 10px;
 }
 
 /* for footer */

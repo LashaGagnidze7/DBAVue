@@ -22,14 +22,8 @@ function getProducts(url = apiUrl) {
   })
 }
 
-/*function showProduct(id) {
-  axios.get((apiUrl + '/' + id),).then((res) => {
-    product.value = res.data.data
-  })
-}*/
-
 function handleMassDelete() {
-  products.value = products.value.filter((p) => !checkedIds.value.includes(p.id))
+  products.value = products.value.filter((p) => !checkedIds.value.includes(String(p.id)))
 }
 
 function handleCheck(e) {

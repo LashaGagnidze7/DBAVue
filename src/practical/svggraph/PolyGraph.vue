@@ -1,6 +1,6 @@
 <script setup>
 import AxisLabel from './AxisLabel.vue'
-import { computed } from 'vue'
+import { computed, defineProps } from 'vue'
 import { valueToPoint } from './util.js'
 
 const props = defineProps({

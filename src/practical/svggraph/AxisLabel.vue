@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, defineProps } from 'vue'
 import { valueToPoint } from './util.js'
 
 const props = defineProps({

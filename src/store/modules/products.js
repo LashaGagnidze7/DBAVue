@@ -3,8 +3,19 @@ import shop from "../../api/shop";
 const state = {
   products: [],
   apiUrl: "http://items.magischer.de/api/products",
+  limits: [5, 10, 15, 20],
   apiLimit: 5,
+  langs: ["en", "ru", "ka"],
   apiLang: "en",
+};
+
+const getters = {
+  getLimits(state) {
+    return state.limits;
+  },
+  getLangs(state) {
+    return state.langs;
+  },
 };
 
 const actions = {
@@ -21,20 +32,20 @@ const mutations = {
     state.products = products;
   },
   setApiUrl(state, url) {
-    state.apiUrl = url
-    
+    state.apiUrl = url;
   },
   setApiLimit(state, limit) {
-    state.apiLimit = limit
+    state.apiLimit = limit;
   },
   setApiLanguage(state, lang) {
-    state.apiLang = lang
+    state.apiLang = lang;
   },
 };
 
 export default {
   namespaced: true,
   state,
+  getters,
   actions,
   mutations,
 };

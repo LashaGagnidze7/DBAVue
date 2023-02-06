@@ -2,22 +2,41 @@
   <header>
     <h1>Product List</h1>
     <div>
-      <!--<select @change="setApiLimit(this.$event.value)">
+      <select @change="setApiLimit">
         <option v-for="item in limits" :value="item" :key="item">
           {{ item }}
         </option>
       </select>
-      <select v-model="lang" @change="getProducts()">
+      <select @change="setApiLanguage">
         <option v-for="item in langs" :value="item" :key="item">
           {{ item }}
         </option>
       </select>
-    -->
       <a>ADD</a>
       <button type="button" id="delete-product-btn">MASS DELETE</button>
     </div>
   </header>
 </template>
+
+<script setup>
+import { useStore } from "vuex";
+
+const store = useStore();
+
+const limits = store.getters["products/getLimits"];
+const langs = store.getters["products/getLangs"];
+
+const setApiLimit = (e) => {
+  store.commit("products/setApiLimit", e.target.value);
+  store.dispatch("products/getProducts");
+};
+const setApiLanguage = (e) => {
+  store.commit("products/setApiLanguage", e.target.value);
+  store.dispatch("products/getProducts");
+};
+
+store.dispatch("products/getProducts");
+</script>
 
 <style scoped>
 header {

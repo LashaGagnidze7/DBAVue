@@ -12,21 +12,7 @@
       </div>
     </div>
   </main>
-  <!--
-  <main v-else>
-    <form @submit.prevent="addProduct">
-      <div>
-        <label>Name</label>
-        <input type="text" v-model="name" />
-      </div>
-      <div>
-        <label>Price ($)</label>
-        <input type="text" v-model="price" />
-      </div>
-      <button type="submit">Add Product</button>
-    </form>
-  </main>
---></template>
+</template>
 
 <script setup>
 import { computed } from "vue";

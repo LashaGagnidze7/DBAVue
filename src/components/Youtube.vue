@@ -13,8 +13,8 @@ const addToWatchlist = (video) =>
   <ul style="float: left; width: 45%">
     <li v-for="video in youtube" :key="video.id">
       <h1>{{ video.name }}</h1>
-      <a :href="video.url" target="blank">
-        <img :src="video?.cover" />
+      <a :href="video.url" target="blank" @click="show = true">
+        <img :src="video.cover" />
       </a>
       <button
         @click="

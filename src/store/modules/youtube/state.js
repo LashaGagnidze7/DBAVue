@@ -3,6 +3,7 @@ const coverUrl =
 const today = new Date();
 
 export default {
+  search: "",
   youtube: [
     {
       id: 1,

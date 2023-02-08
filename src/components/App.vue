@@ -6,8 +6,10 @@ import AddVideo from "./AddVideo.vue";
 </script>
 
 <template>
-    <search></search>
+  <search></search>
+  <div class="flex flex-row space-x-4">
     <youtube></youtube>
     <watchlist></watchlist>
-    <add-video></add-video>
+  </div>
+  <add-video></add-video>
 </template>

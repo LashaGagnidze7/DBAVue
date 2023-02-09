@@ -1,21 +1,20 @@
 <script setup>
-import uuid from "uuid";
 import { ref } from "vue";
 import { useStore } from "vuex";
 import router from "../router";
 
 const store = useStore();
 
-const id = uuid;
 const name = ref("");
 const url = ref("");
 const description = ref("");
-const cover = ref("");
+const cover = ref(
+  "https://img.youtube.com/vi/%3Cinsert-youtube-video-id-here%3E/0.jpg"
+);
 const created_at = new Date().toLocaleDateString();
 
 function addToYoutube() {
   store.commit("youtube/addToYoutube", {
-    id,
     name,
     url,
     description,
@@ -48,7 +47,6 @@ function addToYoutube() {
       width="48"
       height="48"
       id="cover"
-      v-model="cover"
     />
 
     <button

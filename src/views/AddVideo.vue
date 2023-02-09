@@ -8,16 +8,15 @@ const store = useStore();
 const name = ref("");
 const url = ref("");
 const description = ref("");
-const cover = ref(
-  "https://img.youtube.com/vi/%3Cinsert-youtube-video-id-here%3E/0.jpg"
-);
+const cover =
+  "https://img.youtube.com/vi/%3Cinsert-youtube-video-id-here%3E/0.jpg";
 const created_at = new Date().toLocaleDateString();
 
 function addToYoutube() {
   store.commit("youtube/addToYoutube", {
-    name,
-    url,
-    description,
+    name: name.value,
+    url: url.value,
+    description: description.value,
     cover,
     created_at,
   });

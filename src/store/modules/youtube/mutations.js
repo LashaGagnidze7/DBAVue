@@ -1,7 +1,7 @@
 export default {
   addToYoutube({ youtube }, video) {
-    youtube.push(Object.assing({}, { id: youtube.length + 1 }, video));
-    console.log(video);
+    video.id = youtube.length + 1;
+    youtube.push(video);
   },
   removeFromYoutube({ youtube }, id) {
     const vid = youtube.find((video) => video.id === +id);

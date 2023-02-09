@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
-    "acp": "git add . && git commit -m '' && git push -u origin master",
+    "acp": "git add . && git commit -m '$message' && git push -u origin master",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },

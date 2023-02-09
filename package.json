@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service dev",
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -13,7 +12,9 @@
     "core-js": "^3.8.3",
     "lodash-es": "^4.17.21",
     "marked": "^4.2.12",
+    "uuid": "^9.0.0",
     "vue": "^3.2.13",
+    "vue-router": "^4.1.6",
     "vuex": "^4.1.0"
   },
   "devDependencies": {

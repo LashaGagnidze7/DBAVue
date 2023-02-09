@@ -1,9 +1,9 @@
 export default {
-  getYoutube(state) {
-    return state.youtube.filter(
+  getYoutube({youtube, search}) {
+    return youtube.filter(
       (video) =>
-        video.name.toLowerCase().includes(state.search) ||
-        video.description.toLowerCase().includes(state.search)
+        video.name.toLowerCase().includes(search) ||
+        video.description.toLowerCase().includes(search)
     );
   },
 };

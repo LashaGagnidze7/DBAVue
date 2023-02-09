@@ -1,9 +1,9 @@
 export default {
-  addToWatchlist(state, video) {
-    state.watchlist.push(video);
+  addToWatchlist({watchlist}, video) {
+    watchlist.push(video);
   },
-  removeFromWatchlist(state, id) {
-    const vid = state.watchlist.find((video) => video.id === +id);
-    state.watchlist.splice(state.watchlist.indexOf(vid), 1);
+  removeFromWatchlist({watchlist}, id) {
+    const vid = watchlist.find((video) => video.id === +id);
+    watchlist.splice(watchlist.indexOf(vid), 1);
   },
 };

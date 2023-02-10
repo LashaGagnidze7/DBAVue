@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Youtube from "../views/Youtube.vue";
 import Watchlist from "../views/Watchlist.vue";
 import AddVideo from "../views/AddVideo.vue";
+import Video from "../views/Video.vue";
 const routes = [
   {
     path: "/",
@@ -17,6 +18,10 @@ const routes = [
     path: "/add-video",
     name: "AddVideo",
     component: AddVideo,
+  },
+  { 
+    path: "/:id", 
+    component: Video 
   },
 ];
 const router = createRouter({

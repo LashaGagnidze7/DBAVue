@@ -42,7 +42,7 @@ function addToYoutube() {
     <label for="cover">Cover Image:</label>
     <input
       type="image"
-      :src="require('../assets/images/126477.png')"
+      :src="require('../assets/images/istockphoto.jpg')"
       width="48"
       height="48"
       id="cover"

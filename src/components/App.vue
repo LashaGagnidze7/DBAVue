@@ -1,9 +1,5 @@
-<script setup>
-import Search from "./Search.vue";
-</script>
-
 <template>
-  <search></search>
+  <Search></Search>
   <div class="flex flex-row space-x-4">
     <router-link to="/">Youtube</router-link> |
     <router-link to="/watchlist">Watchlist</router-link> |

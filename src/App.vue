@@ -1,7 +1,7 @@
 <script setup>
 import Search from "./components/Search.vue";
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 const store = useStore();
 const linkStyle = "text-blue-500 hover:text-blue-800";
@@ -9,6 +9,8 @@ const linkStyle = "text-blue-500 hover:text-blue-800";
 const watchlistLen = computed(
   () => store.getters["watchlist/getWatchlistLength"]
 );
+
+onMounted(() => store.dispatch("api/fetchCurrencies"));
 </script>
 
 <template>

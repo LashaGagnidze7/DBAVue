@@ -1,3 +1,4 @@
+import colorGenerator from "../../../utility/index";
 const today = new Date();
 
 export default {
@@ -10,6 +11,7 @@ export default {
       description: "description",
       cover: require("../../../assets/images/rock.png"),
       created_at: today.toLocaleDateString(),
+      style: colorGenerator()
     },
     {
       id: 2,
@@ -18,6 +20,7 @@ export default {
       description: "description",
       cover: require("../../../assets/images/rock.png"),
       created_at: today.toLocaleDateString(),
+      style: colorGenerator()
     },
     {
       id: 3,
@@ -26,6 +29,7 @@ export default {
       description: "description",
       cover: require("../../../assets/images/rock.png"),
       created_at: today.toLocaleDateString(),
+      style: colorGenerator()
     },
     {
       id: 4,
@@ -34,6 +38,7 @@ export default {
       description: "description",
       cover: require("../../../assets/images/rock.png"),
       created_at: today.toLocaleDateString(),
+      style: colorGenerator()
     },
     {
       id: 5,
@@ -42,6 +47,7 @@ export default {
       description: "description",
       cover: require("../../../assets/images/rock.png"),
       created_at: today.toLocaleDateString(),
+      style: colorGenerator()
     },
   ],
 };

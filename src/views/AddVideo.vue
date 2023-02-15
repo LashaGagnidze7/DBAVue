@@ -1,4 +1,5 @@
 <script setup>
+import colorGenerator from "@/utility";
 import { ref } from "vue";
 import { useStore } from "vuex";
 import router from "../router";
@@ -18,6 +19,7 @@ function addToYoutube() {
     description: description.value,
     cover,
     created_at,
+    style: colorGenerator()
   });
   router.replace({ path: "/" });
 }

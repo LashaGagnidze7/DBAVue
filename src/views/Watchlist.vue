@@ -11,7 +11,7 @@ const addToYoutube = (video) => store.commit("youtube/addToYoutube", video);
 
 <template>
   <ul class="grid gap-4 grid-cols-5 grid-rows-5">
-    <li v-for="video in watchlist" :key="video.id">
+    <li v-for="video in watchlist" :key="video.id" :style="video.style">
       <h1>{{ video.name }}</h1>
       <a :href="video.url">
         <img :src="video.cover" />

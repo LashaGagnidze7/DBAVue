@@ -12,7 +12,7 @@ const addToWatchlist = (video) =>
 
 <template>
   <ul class="grid gap-4 grid-cols-5 grid-rows-5">
-    <li v-for="video in youtube" :key="video.id">
+    <li v-for="video in youtube" :key="video.id" :style="video.style">
       <h1>{{ video.name }}</h1>
       <a :href="video.url" target="blank" @click="show = true">
         <img :src="video.cover" />

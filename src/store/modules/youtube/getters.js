@@ -1,5 +1,5 @@
 export default {
-  getYoutube({youtube, search}) {
+  getYoutube({ youtube, search }) {
     return youtube.filter(
       (video) =>
         video.name.toLowerCase().includes(search) ||

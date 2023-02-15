@@ -1,10 +1,6 @@
 import { createStore } from "vuex";
-import youtube from "./modules/youtube";
-import watchlist from "./modules/watchlist";
+import mainPlugin from "./plugins"
 
 export default createStore({
-  modules: {
-    youtube,
-    watchlist
-  }
+  plugins: [mainPlugin]
 });

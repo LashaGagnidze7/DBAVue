@@ -28,10 +28,10 @@ li:hover {
     transform: translate3d(1px, 1px, 1px);
 }
 
-img:hover {
+a > img:hover {
     border: 1px solid red;
 }
 
-sup {
+a > sup {
     color: rgb(164, 117, 0);
 }

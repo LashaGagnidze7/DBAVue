@@ -3,10 +3,12 @@ import { useStore } from "vuex";
 import { computed } from "vue";
 
 const store = useStore();
+
 const watchlist = computed(() => store.getters["watchlist/getWatchlist"]);
+
 const removeFromWatchlist = (id) =>
   store.commit("watchlist/removeFromWatchlist", id);
-const addToYoutube = (video) => store.commit("youtube/addToYoutube", video);
+const addToYoutube = (video) => store.commit("youtube/addToYoutube", { video });
 </script>
 
 <template>

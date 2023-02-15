@@ -1,11 +1,8 @@
-const randomNumber = (max) => {
-  return Math.floor(Math.random() * max);
+const randNum = () => {
+  const maxRGB = 256
+  return Math.floor(Math.random() * maxRGB);
 };
 
-const colorGenerator = () => {
-  return `background-color: rgba(${randomNumber(256)}, ${randomNumber(
-    256
-  )}, ${randomNumber(256)}, ${Math.random()});`;
+export default () => {
+  return `background-color: rgba(${randNum()}, ${randNum()}, ${randNum()}, ${Math.random()});`;
 };
-
-export default colorGenerator;

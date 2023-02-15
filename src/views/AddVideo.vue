@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useStore } from "vuex";
-import router from "@/router";
+import router from "../router";
 
 const store = useStore();
 

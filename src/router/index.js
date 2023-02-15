@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { Youtube, Watchlist, AddVideo, Video } from "../loader";
+import { Youtube, Watchlist, AddVideo, Video, Api } from "../loader";
 
 const routes = [
   {
@@ -19,11 +19,17 @@ const routes = [
   },
   {
     path: "/:id",
+    name: "Video",
     component: Video,
+  },
+  {
+    path: "/api",
+    name: "Api",
+    component: Api,
   },
 ];
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(process.env.APP_VUE_BASE_URL),
   routes,
 });
 export default router;

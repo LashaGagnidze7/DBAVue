@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
-import mainPlugin from "./plugins"
+import videoPlugin from "./plugins/videoplugin";
+import apiPlugin from "./plugins/apiplugin";
 
 export default createStore({
-  plugins: [mainPlugin]
+  plugins: [videoPlugin, apiPlugin],
 });

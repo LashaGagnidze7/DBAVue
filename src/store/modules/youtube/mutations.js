@@ -1,4 +1,4 @@
-import colGen from "../../../utility";
+import colGen from "../../../utility/colgen";
 
 export default {
   addToYoutube({ youtube }, { video, status = "old"}) {

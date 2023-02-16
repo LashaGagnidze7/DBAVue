@@ -28,10 +28,14 @@ li:hover {
     transform: translate3d(1px, 1px, 1px);
 }
 
-a > img:hover {
+a > sup {
+    color: rgb(164, 117, 0);
+}
+
+.br-rd, a > img:hover {
     border: 1px solid red;
 }
 
-a > sup {
-    color: rgb(164, 117, 0);
+input:focus {
+    outline: none;
 }

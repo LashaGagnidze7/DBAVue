@@ -1,4 +1,4 @@
-import colGen from "../../../utility";
+import colGen from "../../../utility/colgen";
 const cover = require("../../../assets/images/rock.png");
 const created_at = new Date().toLocaleDateString();
 

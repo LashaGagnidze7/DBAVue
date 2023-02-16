@@ -17,7 +17,7 @@ const addToWatchlist = (video) =>
     <li v-for="video in youtube" :key="video.id" :style="video.style">
       <h1>{{ video.name }}</h1>
       <a :href="video.url" target="blank">
-        <img :src="video.cover" />
+        <img :src="video.cover" class="br-red" />
       </a>
       <button
         @click="

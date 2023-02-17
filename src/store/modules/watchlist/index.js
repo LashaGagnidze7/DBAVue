@@ -3,8 +3,10 @@ import mutations from "./mutations";
 
 export default {
   namespaced: true,
-  state: {
-    watchlist: [],
+  state() {
+    return {
+      watchlist: [],
+    };
   },
   getters,
   mutations,
